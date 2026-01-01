@@ -21,7 +21,7 @@ export default function FooterSection() {
           </svg>
         </div>
         <p className="text-xs text-[var(--color-text-muted)]">
-          Made with love
+          Made with Jerry
         </p>
       </motion.div>
     </footer>

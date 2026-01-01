@@ -16,8 +16,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: weddingData.meta.title,
     description: weddingData.meta.description,
-    images: [weddingData.meta.ogImage],
+    images: [{ url: '/mainimage/IMG_5638.jpg', width: 1200, height: 630 }],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: weddingData.meta.title,
+    description: weddingData.meta.description,
+    images: ['/mainimage/IMG_5638.jpg'],
   },
   robots: {
     index: false,

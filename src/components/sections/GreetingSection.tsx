@@ -33,16 +33,16 @@ export default function GreetingSection({
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" as const },
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
     },
   };
 
   return (
-    <section ref={ref} className="py-20 px-6 bg-[var(--color-bg)]">
+    <section ref={ref} className="py-24 px-6 bg-[var(--color-bg)] paper-texture">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -50,24 +50,16 @@ export default function GreetingSection({
         className="text-center"
       >
         <motion.div variants={itemVariants} className="mb-8">
-          <svg
-            className="w-12 h-12 mx-auto mb-4 text-[var(--color-primary)]"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-          >
-            <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" />
-          </svg>
-          <p className="section-title mb-3">INVITATION</p>
-          <h2 className="font-[family-name:var(--font-heading)] text-xl text-[var(--color-text)]">
+          <div className="w-px h-10 bg-[var(--color-primary)] mx-auto mb-6 opacity-40" />
+          <p className="section-title text-sm mb-4">INVITATION</p>
+          <h2 className="font-[family-name:var(--font-heading)] text-[var(--color-text)]">
             {title}
           </h2>
         </motion.div>
 
         <motion.div
           variants={itemVariants}
-          className="mb-12 font-[family-name:var(--font-heading)] text-[15px] leading-[2] text-[var(--color-text)] whitespace-pre-line"
+          className="mb-12 font-[family-name:var(--font-heading)] text-[15px] leading-[2.2] text-[var(--color-text)] whitespace-pre-line"
         >
           {message}
         </motion.div>

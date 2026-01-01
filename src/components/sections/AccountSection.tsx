@@ -123,15 +123,15 @@ export default function AccountSection({ groom, bride }: AccountSectionProps) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-[var(--color-bg-secondary)]">
+    <section ref={ref} className="py-20 px-6 bg-[var(--color-bg-secondary)] paper-texture">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="text-center mb-8">
-          <p className="section-title mb-2">ACCOUNT</p>
-          <h2 className="font-[family-name:var(--font-heading)] text-lg mb-2">
+        <div className="text-center mb-10">
+          <p className="section-title mb-3">ACCOUNT</p>
+          <h2 className="font-[family-name:var(--font-heading)] mb-3">
             마음 전하실 곳
           </h2>
           <p className="text-sm text-[var(--color-text-light)]">

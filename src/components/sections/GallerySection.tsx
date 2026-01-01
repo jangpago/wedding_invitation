@@ -43,36 +43,77 @@ export default function GallerySection({ images }: GallerySectionProps) {
     : images;
 
   return (
-    <section ref={ref} className="py-16 bg-[var(--color-bg-secondary)]">
+    <section ref={ref} className="py-20 bg-[var(--color-bg-secondary)] paper-texture">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="text-center mb-8 px-6">
-          <p className="section-title mb-2">GALLERY</p>
-          <h2 className="font-[family-name:var(--font-heading)] text-lg">갤러리</h2>
+        <div className="text-center mb-10 px-6">
+          <p className="section-title mb-3">GALLERY</p>
+          <h2 className="font-[family-name:var(--font-heading)]">우리의 순간들</h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-1 px-1">
-          {displayImages.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: index * 0.05, duration: 0.5 }}
-              onClick={() => setSelectedIndex(index)}
-              className="aspect-square relative cursor-pointer overflow-hidden"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover transition-transform duration-300 hover:scale-105"
-                sizes="(max-width: 430px) 33vw"
-              />
-            </motion.div>
-          ))}
+        <div className="px-3">
+          <div className="grid grid-cols-3 gap-1.5">
+            {displayImages.slice(0, 1).map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                onClick={() => setSelectedIndex(index)}
+                className="col-span-2 row-span-2 aspect-[4/5] relative cursor-pointer overflow-hidden rounded-lg shadow-md"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-all duration-500 hover:scale-105"
+                  sizes="(max-width: 430px) 66vw"
+                />
+              </motion.div>
+            ))}
+            {displayImages.slice(1, 3).map((image, index) => (
+              <motion.div
+                key={index + 1}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.15 + index * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                onClick={() => setSelectedIndex(index + 1)}
+                className="aspect-square relative cursor-pointer overflow-hidden rounded-lg shadow-md"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-all duration-500 hover:scale-105"
+                  sizes="(max-width: 430px) 33vw"
+                />
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="grid grid-cols-3 gap-1.5 mt-1.5">
+            {displayImages.slice(3).map((image, index) => (
+              <motion.div
+                key={index + 3}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.25 + index * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                onClick={() => setSelectedIndex(index + 3)}
+                className="aspect-square relative cursor-pointer overflow-hidden rounded-lg shadow-sm"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-all duration-500 hover:scale-105"
+                  sizes="(max-width: 430px) 33vw"
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.div>
 

@@ -70,7 +70,7 @@ export default function ShareSection({
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={handleKakaoShare}
-            className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#FEE500] rounded-xl font-medium text-[#3C1E1E]"
+            className="flex-1 flex items-center justify-center gap-2 py-4 bg-[var(--color-accent)] rounded-xl font-medium text-[var(--color-text)]"
           >
             <MessageCircle size={20} />
             <span>카카오톡</span>
@@ -83,8 +83,8 @@ export default function ShareSection({
           >
             {copied ? (
               <>
-                <Check size={20} className="text-green-500" />
-                <span className="text-green-500">복사됨</span>
+                <Check size={20} className="text-[var(--color-primary)]" />
+                <span className="text-[var(--color-primary)]">복사됨</span>
               </>
             ) : (
               <>

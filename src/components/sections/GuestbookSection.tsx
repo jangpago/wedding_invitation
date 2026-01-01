@@ -154,12 +154,12 @@ export default function GuestbookSection() {
                       {formatDate(entry.createdAt)}
                     </span>
                     {'passwordHash' in entry && (
-                      <button
+                       <button
                         onClick={() => {
                           setShowDeleteModal(entry.id);
                           setError(null);
                         }}
-                        className="text-[var(--color-text-muted)] hover:text-red-400"
+                        className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)]"
                       >
                         <Trash2 size={14} />
                       </button>
@@ -236,7 +236,7 @@ export default function GuestbookSection() {
                 />
 
                 {error && (
-                  <p className="text-red-500 text-sm text-center">{error}</p>
+                  <p className="text-[var(--color-accent)] text-sm text-center">{error}</p>
                 )}
 
                 <button
@@ -285,7 +285,7 @@ export default function GuestbookSection() {
                 className="w-full px-4 py-3 bg-[var(--color-bg-secondary)] rounded-xl text-sm outline-none mb-3"
               />
               {error && (
-                <p className="text-red-500 text-sm text-center mb-3">{error}</p>
+                <p className="text-[var(--color-accent)] text-sm text-center mb-3">{error}</p>
               )}
               <div className="flex gap-2">
                 <button
@@ -300,7 +300,7 @@ export default function GuestbookSection() {
                 </button>
                 <button
                   onClick={handleDelete}
-                  className="flex-1 py-3 bg-red-500 text-white rounded-xl text-sm"
+                  className="flex-1 py-3 bg-[var(--color-primary-dark)] text-white rounded-xl text-sm"
                 >
                   삭제
                 </button>

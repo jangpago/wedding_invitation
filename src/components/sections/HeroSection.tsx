@@ -17,6 +17,7 @@ export default function HeroSection({
   brideName,
   date,
   venue,
+  mainImage = '/mainimage/IMG_5638.jpg',
 }: HeroSectionProps) {
   return (
     <section className="relative min-h-screen flex flex-col">
@@ -28,13 +29,13 @@ export default function HeroSection({
       >
         <div className="relative w-full h-full bg-gradient-to-b from-[var(--color-primary-light)] to-[var(--color-bg)]">
           <Image
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"
+            src={mainImage}
             alt="메인 웨딩 사진"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[var(--color-bg)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
         </div>
       </motion.div>
 
@@ -45,19 +46,19 @@ export default function HeroSection({
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-center"
         >
-          <p className="text-xs tracking-[0.25em] text-[var(--color-primary)] mb-4">
+          <p className="text-[11px] tracking-[0.3em] text-[#E8D5C4] mb-6 font-light">
             SAVE THE DATE
           </p>
           
-          <h1 className="font-[family-name:var(--font-heading)] text-3xl mb-6">
-            <span className="text-[var(--color-text)]">{groomName}</span>
-            <span className="text-[var(--color-accent)] mx-3 text-2xl">&</span>
-            <span className="text-[var(--color-text)]">{brideName}</span>
+          <h1 className="font-[family-name:var(--font-heading)] text-[32px] mb-8 leading-relaxed">
+            <span className="text-[#FFF9F0]">{groomName}</span>
+            <span className="text-[#FFF9F0] mx-4 text-2xl align-middle">&</span>
+            <span className="text-[#FFF9F0]">{brideName}</span>
           </h1>
 
-          <div className="space-y-1 text-sm text-[var(--color-text-light)]">
-            <p>{formatKoreanDate(date)}</p>
-            <p>{venue}</p>
+          <div className="text-[13px] text-[#E8D5C4] tracking-wide">
+            <p className="mb-1">{formatKoreanDate(date)}</p>
+            <p className="text-[#D4A574]">{venue}</p>
           </div>
         </motion.div>
 
@@ -65,7 +66,7 @@ export default function HeroSection({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="mt-12 flex justify-center"
+          className="mt-8 flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 6, 0] }}

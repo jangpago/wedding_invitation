@@ -57,7 +57,7 @@ export default function CalendarSection({ date, groomName, brideName }: Calendar
               <div
                 key={day}
                 className={`text-xs py-2 ${
-                  idx === 0 ? 'text-red-400' : idx === 6 ? 'text-blue-400' : 'text-[var(--color-text-light)]'
+                  idx === 0 ? 'text-[var(--color-accent)]' : idx === 6 ? 'text-[var(--color-groom)]' : 'text-[var(--color-text-light)]'
                 }`}
               >
                 {day}
@@ -71,8 +71,8 @@ export default function CalendarSection({ date, groomName, brideName }: Calendar
                 key={idx}
                 className={`relative aspect-square flex items-center justify-center text-sm
                   ${day === targetDay ? 'text-white' : ''}
-                  ${idx % 7 === 0 && day !== targetDay ? 'text-red-400' : ''}
-                  ${idx % 7 === 6 && day !== targetDay ? 'text-blue-400' : ''}
+                  ${idx % 7 === 0 && day !== targetDay ? 'text-[var(--color-accent)]' : ''}
+                  ${idx % 7 === 6 && day !== targetDay ? 'text-[var(--color-groom)]' : ''}
                 `}
               >
                 {day === targetDay && (

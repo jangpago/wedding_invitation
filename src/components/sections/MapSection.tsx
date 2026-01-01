@@ -49,13 +49,6 @@ export default function MapSection({ venue }: MapSectionProps) {
     );
   };
 
-  const openTMap = () => {
-    window.open(
-      `https://apis.openapi.sk.com/tmap/app/routes?appKey=l7xx&name=${encodeURIComponent(venue.name)}&lon=${venue.coordinates.lng}&lat=${venue.coordinates.lat}`,
-      '_blank'
-    );
-  };
-
   const transportationItems = [
     { icon: Train, label: '지하철', content: venue.transportation.subway },
     { icon: Bus, label: '버스', content: venue.transportation.bus },
@@ -106,24 +99,18 @@ export default function MapSection({ venue }: MapSectionProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 mb-6">
+        <div className="grid grid-cols-2 gap-2 mb-6">
           <button
             onClick={openNaverMap}
-            className="py-3 bg-[#03C75A] text-white text-sm rounded-xl transition-transform active:scale-95"
+            className="py-3 bg-[var(--color-primary)] text-white text-sm rounded-xl transition-transform active:scale-95"
           >
             네이버지도
           </button>
           <button
             onClick={openKakaoMap}
-            className="py-3 bg-[#FEE500] text-[#3C1E1E] text-sm rounded-xl transition-transform active:scale-95"
+            className="py-3 bg-[var(--color-accent)] text-[var(--color-text)] text-sm rounded-xl transition-transform active:scale-95"
           >
             카카오맵
-          </button>
-          <button
-            onClick={openTMap}
-            className="py-3 bg-[#EF4444] text-white text-sm rounded-xl transition-transform active:scale-95"
-          >
-            티맵
           </button>
         </div>
 

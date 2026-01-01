@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #D4A574;
-  --color-primary-light: #E8D5C4;
-  --color-primary-dark: #B8956A;
-  --color-accent: #E8B4B8;
-  --color-accent-light: #F5E1E3;
-  --color-bg: #FDFBF8;
-  --color-bg-secondary: #F8F5F0;
-  --color-text: #3D3D3D;
-  --color-text-light: #7A7A7A;
-  --color-text-muted: #A0A0A0;
-  --color-border: #E5E0DA;
-  --color-groom: #5B7C99;
-  --color-bride: #C9A7A7;
+  --color-primary: #91785D;
+  --color-primary-light: #C9B8A8;
+  --color-primary-dark: #6B5A45;
+  --color-accent: #C9A7A7;
+  --color-accent-light: #E8D5D5;
+  --color-bg: #FAF8F5;
+  --color-bg-secondary: #F3EFE9;
+  --color-text: #3D2B1F;
+  --color-text-light: #6B5A4D;
+  --color-text-muted: #9A8B7A;
+  --color-border: #E5DDD3;
+  --color-groom: #5A6B5A;
+  --color-bride: #A67B7B;
+  --color-success: #91785D;
   
   --font-heading: 'Noto Serif KR', serif;
   --font-body: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;

@@ -98,8 +98,8 @@ function AccountCard({
                   >
                     {copiedIndex === index ? (
                       <>
-                        <Check size={14} className="text-green-500" />
-                        <span className="text-green-500">복사됨</span>
+                        <Check size={14} className="text-[var(--color-primary)]" />
+                        <span className="text-[var(--color-primary)]">복사됨</span>
                       </>
                     ) : (
                       <>

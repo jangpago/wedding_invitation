@@ -57,16 +57,16 @@ export default function MapSection({ venue }: MapSectionProps) {
   ].filter(item => item.content);
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-[var(--color-bg)]">
+    <section ref={ref} className="py-20 px-6 bg-[var(--color-bg)] paper-texture">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="text-center mb-8">
-          <p className="section-title mb-2">LOCATION</p>
-          <h2 className="font-[family-name:var(--font-heading)] text-lg mb-2">오시는 길</h2>
-          <p className="text-[var(--color-text)]">{venue.name}</p>
+        <div className="text-center mb-10">
+          <p className="section-title mb-3">LOCATION</p>
+          <h2 className="font-[family-name:var(--font-heading)] mb-3">오시는 길</h2>
+          <p className="text-[var(--color-text)] font-medium">{venue.name}</p>
           <p className="text-sm text-[var(--color-text-light)]">{venue.hall}</p>
         </div>
 

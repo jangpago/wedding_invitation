@@ -39,26 +39,30 @@ export default function HeroSection({
         </div>
       </motion.div>
 
-      <div className="relative z-10 flex-1 flex flex-col justify-end pb-16 px-6">
+      <div className="relative z-10 flex-1 flex flex-col justify-end pb-12 px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
+          transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="text-center"
         >
-          <p className="text-[11px] tracking-[0.3em] text-[#E8D5C4] mb-6 font-light">
-            SAVE THE DATE
-          </p>
-          
-          <h1 className="font-[family-name:var(--font-heading)] text-[32px] mb-8 leading-relaxed">
-            <span className="text-[#FFF9F0]">{groomName}</span>
-            <span className="text-[#FFF9F0] mx-4 text-2xl align-middle">&</span>
-            <span className="text-[#FFF9F0]">{brideName}</span>
-          </h1>
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl py-8 px-6 border border-white/20 shadow-xl">
+            <p className="text-[11px] tracking-[0.4em] text-white/70 mb-5 font-light">
+              SAVE THE DATE
+            </p>
+            
+            <h1 className="font-[family-name:var(--font-heading)] text-[28px] mb-6 leading-snug">
+              <span className="text-white drop-shadow-sm">{groomName}</span>
+              <span className="text-white/80 mx-3 text-xl align-middle">&</span>
+              <span className="text-white drop-shadow-sm">{brideName}</span>
+            </h1>
 
-          <div className="text-[13px] text-[#E8D5C4] tracking-wide">
-            <p className="mb-1">{formatKoreanDate(date)}</p>
-            <p className="text-[#D4A574]">{venue}</p>
+            <div className="w-12 h-px bg-white/30 mx-auto mb-5" />
+
+            <div className="text-[13px] text-white/85 tracking-wide">
+              <p className="mb-1.5">{formatKoreanDate(date)}</p>
+              <p className="text-white/65">{venue}</p>
+            </div>
           </div>
         </motion.div>
 

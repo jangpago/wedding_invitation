@@ -115,42 +115,61 @@ export default function GuestbookSection() {
 
   const displayEntries = entries.length > 0 ? entries : sampleEntries;
 
+  const getCardRotation = (index: number) => {
+    const rotations = [-1.2, 0.8, -0.5, 1, -0.8, 0.5];
+    return rotations[index % rotations.length];
+  };
+
+  const cardColors = [
+    'bg-[#FFF9E6]',
+    'bg-[#F0F7EE]', 
+    'bg-[#FFF0F0]',
+    'bg-[#F0F4FF]',
+    'bg-[#FFF5EB]',
+    'bg-[#F5F0FF]',
+  ];
+
   return (
-    <section ref={ref} className="py-16 px-6 bg-[var(--color-bg)]">
+    <section ref={ref} className="py-20 px-6 bg-[var(--color-bg)] paper-texture">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="text-center mb-8">
-          <p className="section-title mb-2">GUESTBOOK</p>
-          <h2 className="font-[family-name:var(--font-heading)] text-lg mb-2">방명록</h2>
+        <div className="text-center mb-10">
+          <p className="section-title mb-3">GUESTBOOK</p>
+          <h2 className="font-[family-name:var(--font-heading)] mb-2">방명록</h2>
           <p className="text-sm text-[var(--color-text-light)]">
-            축하 메시지를 남겨주세요
+            축하의 마음을 남겨주세요
           </p>
         </div>
 
-        <div className="space-y-3 mb-4 max-h-80 overflow-y-auto hide-scrollbar">
+        <div className="space-y-4 mb-6 max-h-96 overflow-y-auto hide-scrollbar">
           {displayEntries.length === 0 ? (
             <div className="text-center py-12 text-[var(--color-text-muted)]">
               <MessageSquare size={32} className="mx-auto mb-3 opacity-50" />
               <p className="text-sm">첫 번째 축하 메시지를 남겨주세요!</p>
             </div>
           ) : (
-            displayEntries.map((entry) => (
+            displayEntries.map((entry, index) => (
               <motion.div
                 key={entry.id}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-[var(--color-bg-secondary)] rounded-xl p-4"
+                initial={{ opacity: 0, y: 15, rotate: 0 }}
+                animate={{ opacity: 1, y: 0, rotate: getCardRotation(index) }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className={`${cardColors[index % cardColors.length]} rounded-sm p-5 shadow-md relative`}
+                style={{
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06)',
+                }}
               >
-                <div className="flex justify-between items-start mb-2">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-3 bg-[var(--color-primary-light)]/60 rounded-sm" />
+                <div className="flex justify-between items-start mb-3">
                   <div>
-                    <span className="text-xs text-[var(--color-primary)]">FROM.</span>
-                    <span className="ml-1 text-sm font-medium">{entry.name}</span>
+                    <span className="text-[10px] text-[var(--color-primary)] tracking-wider">FROM</span>
+                    <p className="text-sm font-medium mt-0.5">{entry.name}</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-[var(--color-text-muted)]">
+                    <span className="text-[10px] text-[var(--color-text-muted)]">
                       {formatDate(entry.createdAt)}
                     </span>
                     {'passwordHash' in entry && (
@@ -159,14 +178,14 @@ export default function GuestbookSection() {
                           setShowDeleteModal(entry.id);
                           setError(null);
                         }}
-                        className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)]"
+                        className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
                       >
-                        <Trash2 size={14} />
+                        <Trash2 size={12} />
                       </button>
                     )}
                   </div>
                 </div>
-                <p className="text-sm text-[var(--color-text)] whitespace-pre-line">
+                <p className="text-sm text-[var(--color-text)] whitespace-pre-line leading-relaxed">
                   {entry.message}
                 </p>
               </motion.div>
@@ -175,12 +194,13 @@ export default function GuestbookSection() {
         </div>
 
         <motion.button
-          whileTap={{ scale: 0.98 }}
+          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.01 }}
           onClick={() => {
             setShowWriteModal(true);
             setError(null);
           }}
-          className="w-full py-4 bg-[var(--color-primary)] text-white rounded-xl font-medium"
+          className="w-full py-4 bg-[var(--color-primary)] text-white rounded-xl font-medium shadow-lg shadow-[var(--color-primary)]/20 transition-all"
         >
           축하 메시지 남기기
         </motion.button>

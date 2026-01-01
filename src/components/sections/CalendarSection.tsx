@@ -39,16 +39,16 @@ export default function CalendarSection({ date, groomName, brideName }: Calendar
   const monthNames = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-[var(--color-bg)]">
+    <section ref={ref} className="py-20 px-6 bg-[var(--color-bg)] paper-texture">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="text-center"
       >
-        <p className="section-title mb-2">CALENDAR</p>
-        <h2 className="font-[family-name:var(--font-heading)] text-lg mb-8">
-          {monthNames[month]}월
+        <p className="section-title mb-3">CALENDAR</p>
+        <h2 className="font-[family-name:var(--font-heading)] mb-8">
+          {year}년 {monthNames[month]}월
         </h2>
 
         <div className="max-w-xs mx-auto">
@@ -100,26 +100,26 @@ export default function CalendarSection({ date, groomName, brideName }: Calendar
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-10 py-4 px-6 bg-[var(--color-bg-secondary)] rounded-2xl inline-block"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-10 py-5 px-8 border border-[var(--color-border)] rounded-2xl inline-block bg-white/50"
         >
-          <p className="text-sm text-[var(--color-text-light)] mb-1">
+          <p className="text-sm text-[var(--color-text-light)] mb-2">
             {groomName} <span className="text-[var(--color-accent)]">♥</span> {brideName}의 결혼식
           </p>
-          <p className="font-[family-name:var(--font-heading)] text-lg text-[var(--color-primary)]">
+          <p className="font-[family-name:var(--font-heading)] text-[var(--color-primary)]">
             {dday > 0 ? (
               <>
-                <span className="text-2xl font-medium">{dday}</span>
-                <span className="text-sm ml-1">일 전</span>
+                <span className="text-3xl font-medium">{dday}</span>
+                <span className="text-sm ml-1.5">일 전</span>
               </>
             ) : dday === 0 ? (
-              <span className="text-xl">오늘이에요!</span>
+              <span className="text-2xl">오늘이에요!</span>
             ) : (
               <>
-                <span className="text-2xl font-medium">{Math.abs(dday)}</span>
-                <span className="text-sm ml-1">일이 지났습니다</span>
+                <span className="text-3xl font-medium">{Math.abs(dday)}</span>
+                <span className="text-sm ml-1.5">일이 지났습니다</span>
               </>
             )}
           </p>

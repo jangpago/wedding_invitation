@@ -44,7 +44,7 @@ export const weddingData: WeddingData = {
         relation: '아버지',
       },
       mother: {
-        name: '', // TODO: 신부측 어머니 정보 입력 필요
+        name: '신희정',
         phone: '',
         relation: '어머니',
       },
